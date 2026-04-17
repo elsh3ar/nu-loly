@@ -215,23 +215,6 @@ def get_bracketing_lecture(method, func_str, a, b, max_iter=20):
 # -------------------------------------------------------------------------
 st.title("🔢 Matrix Multi-Calculator & Methods (Ahmed Elshaar)")
 
-# Sidebar for Standard Calculator
-with st.sidebar:
-    st.header("🧮 Standard Calc")
-    if 'calc_val' not in st.session_state: st.session_state.calc_val = ""
-    
-    def update_calc(val):
-        if val == "=":
-            try: st.session_state.calc_val = str(eval(st.session_state.calc_val))
-            except: st.session_state.calc_val = "Error"
-        elif val == "C": st.session_state.calc_val = ""
-        else: st.session_state.calc_val += val
-
-    st.text_input("Display", value=st.session_state.calc_val, key="disp")
-    cols = st.columns(4)
-    btns = ["7","8","9","/","4","5","6","*","1","2","3","-","C","0","=","+"]
-    for i, b in enumerate(btns):
-        if cols[i%4].button(b, key=f"btn_{b}_{i}"): update_calc(b); st.rerun()
 
 # Main Interface
 col_ctrl1, col_ctrl2, col_ctrl3 = st.columns(3)
